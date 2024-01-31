@@ -21,15 +21,17 @@ let userInput = prompt("Choose your flavor and quantity: Vanilla, Strawberry or 
 
 // The user's input string is split into an array of strings.
 function splitFlavors (input){  
-    const getStringToArray = input.split(`,`)
-
-    // A loop is used to iterate through the array of flavors.
+    const getStringToArray = input.toLowerCase().split(/[ ,]+/)
     
-    console.log(getStringToArray)
+    // A loop is used to iterate through the array of flavors.
+    getStringToArray.forEach((el) => {
+        if(Object.keys(froyo).indexOf(el) !== -1) {
+
+            // The program correctly counts the number of each flavor in the user's input.
+            froyo[el] += 1;
+        }
+    });
+    // An object is used to keep count of how many orders there are of each flavor.
+    return froyo;
 }
-
-splitFlavors(userInput)
-
-// An object is used to keep count of how many orders there are of each flavor.
-
-// The program correctly counts the number of each flavor in the user's input.
+console.log(splitFlavors(userInput))
