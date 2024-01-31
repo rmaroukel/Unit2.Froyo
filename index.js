@@ -29,6 +29,8 @@ function splitFlavors (input){
 
             // The program correctly counts the number of each flavor in the user's input.
             froyo[el] += 1;
+        } else {
+            alert("One of your choices entered was not valid. Please choose one of the following flavors: Vanilla, Strawberry or Coffee")
         }
     });
     // An object is used to keep count of how many orders there are of each flavor.
